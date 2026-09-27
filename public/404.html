@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="robots" content="noindex" />
+    <title>Page not found. Mike Lozovoy</title>
+
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/fonts/onest-latin.woff2"
+      crossorigin
+    />
+
+    <style>
+      /* Отдельная статическая страница: живёт без React, чтобы сервер
+         мог отдать её с настоящим кодом 404. Токены продублированы
+         намеренно, подключать сюда сборку не за чем. */
+      @font-face {
+        font-family: 'Onest';
+        font-style: normal;
+        font-weight: 800;
+        font-display: swap;
+        src: url(/fonts/onest-latin.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: 'Manrope';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(/fonts/manrope-latin.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: 'Manrope';
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: url(/fonts/manrope-latin.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+
+      :root {
+        --bg: #f7f7f5;
+        --ink: #111111;
+        --ink-45: rgba(17, 17, 17, 0.45);
+        --ink-60: rgba(17, 17, 17, 0.6);
+        --ink-12: rgba(17, 17, 17, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .shell {
+        width: 100%;
+        max-width: 1120px;
+        margin-inline: auto;
+        padding-inline: clamp(20px, 5vw, 48px);
+        padding-block: clamp(72px, 9vw, 140px);
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--ink-45);
+      }
+
+      .eyebrow::before {
+        content: '';
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--ink);
+      }
+
+      h1 {
+        margin: clamp(20px, 3vw, 32px) 0 0;
+        font-family: 'Onest', system-ui, sans-serif;
+        font-weight: 800;
+        font-size: clamp(44px, 8vw, 96px);
+        line-height: 0.95;
+        letter-spacing: -0.045em;
+      }
+
+      p {
+        margin: clamp(18px, 2vw, 24px) 0 0;
+        max-width: 40ch;
+        font-size: clamp(18px, 1.6vw, 21px);
+        line-height: 1.55;
+        color: var(--ink-60);
+      }
+
+      .actions {
+        margin-top: clamp(32px, 4vw, 44px);
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 15px 26px;
+        border-radius: 999px;
+        border: 1px solid transparent;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1;
+        text-decoration: none;
+        transition:
+          transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+          border-color 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .btn--dark {
+        background: var(--ink);
+        color: var(--bg);
+      }
+
+      .btn--ghost {
+        border-color: var(--ink-12);
+        color: var(--ink);
+      }
+
+      .btn--ghost:hover {
+        border-color: var(--ink);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .btn {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="shell">
+      <p class="eyebrow">404</p>
+      <h1>Page not found</h1>
+      <p>This page doesn’t exist. The link may be outdated.</p>
+
+      <div class="actions">
+        <a class="btn btn--dark" href="/">Home</a>
+        <a class="btn btn--ghost" href="/projects">All work</a>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,189 @@
+/* Страница кейса: одна колонка 720px по центру, как на Framer */
+.case__col {
+  width: 100%;
+  max-width: calc(720px + var(--gutter) * 2);
+  margin-inline: auto;
+  padding: clamp(40px, 5vw, 72px) var(--gutter) clamp(48px, 6vw, 96px);
+}
+
+.case__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding-block: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+  transition: color 0.25s var(--ease);
+}
+
+.case__back:hover {
+  color: var(--ink);
+}
+
+.case__head {
+  margin-top: clamp(16px, 2vw, 28px);
+}
+
+.case__title {
+  font-size: clamp(44px, 5vw, 64px);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+
+.case__role {
+  margin-top: 14px;
+  line-height: 1.5;
+}
+
+.case__period {
+  margin-top: 6px;
+  font-size: 14px;
+  color: var(--muted-2);
+}
+
+.case__summary {
+  margin-top: 36px;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+/* Блоки колонки разделены воздухом */
+.case__block {
+  margin-top: clamp(40px, 4.5vw, 56px);
+}
+
+.case__kicker {
+  margin-bottom: 20px;
+}
+
+/* Key outcome: цифры строкой, без плашек */
+.case-metrics {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px 48px;
+}
+
+.case-metrics__item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.case-metrics__value {
+  font-family: var(--font-num);
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.case-metrics__label {
+  font-family: var(--font-label);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.case__h2 {
+  font-size: clamp(28px, 3vw, 34px);
+  line-height: 1.1;
+  letter-spacing: 0;
+  margin-bottom: 14px;
+}
+
+/* На Framer «Challenge» набран капсом, остальные заголовки — нет */
+.case__h2--caps {
+  text-transform: uppercase;
+}
+
+.case__body {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.case__list {
+  margin: 0;
+  padding-left: 1.2em;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.case__list strong {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.case__hint {
+  margin-bottom: 28px;
+  font-size: 14px;
+  color: var(--muted-3);
+}
+
+.case__project {
+  padding: 17px 28px;
+}
+
+@media (max-width: 620px) {
+  .case-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 24px;
+  }
+
+  .case__summary {
+    margin-top: 24px;
+  }
+}
+
+/* Следующий кейс — перенесено из русской версии */
+.case__next {
+  border-top: 1px solid var(--ink-12);
+}
+
+.case__next-link {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-block: clamp(36px, 5vw, 64px);
+}
+
+.case__next-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-45);
+}
+
+.case__next-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(36px, 6vw, 68px);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  transition: color 0.3s var(--ease);
+}
+
+.case__next-link:hover .case__next-title {
+  color: var(--ink-60);
+}
+
+.case__next-link:hover .btn__arrow {
+  transform: translate(4px, -4px);
+}
+

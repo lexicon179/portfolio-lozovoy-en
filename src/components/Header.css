@@ -1,0 +1,137 @@
+/* Липкая шапка без backdrop-filter. Размытие под прилипшей шапкой
+   пересчитывается на каждом кадре прокрутки, а на 4K с увеличением
+   его площадь и радиус растут в разы, и страница начинала лагать.
+   Фон полностью непрозрачный: без размытия даже 4% прозрачности
+   дают призрачный текст проезжающих под шапкой заголовков. */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--bg);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 72px;
+}
+
+.header__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.header__nav {
+  display: flex;
+  gap: clamp(18px, 2.4vw, 34px);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.header__nav a {
+  /* зона клика не меньше 24px в высоту (WCAG 2.5.8) */
+  padding-block: 10px;
+  color: var(--ink-60);
+  transition: color 0.25s var(--ease);
+  position: relative;
+}
+
+.header__nav a:hover {
+  color: var(--ink);
+}
+
+.header__nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 5px;
+  height: 2px;
+  background: var(--ink);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s var(--ease);
+}
+
+.header__nav a:hover::after {
+  transform: scaleX(1);
+}
+
+.header__cta {
+  padding: 12px 20px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* На мобиле шапка в две строки: логотип + CTA сверху,
+   навигация — прокручиваемой лентой снизу. */
+@media (max-width: 900px) {
+  /* Зоны касания под палец: кнопка и ссылки навигации по 44px.
+     Вертикальные отступы шапки ужаты, чтобы она не выросла заметно. */
+  .header__inner {
+    flex-wrap: wrap;
+    row-gap: 0;
+    padding-block: 6px 2px;
+    min-height: 0;
+  }
+
+  .header__logo {
+    order: 1;
+    min-height: 44px;
+  }
+
+  .header__cta {
+    order: 2;
+    min-height: 44px;
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+
+  .header__nav {
+    order: 3;
+    width: 100%;
+    gap: 20px;
+    font-size: 14px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .header__nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .header__nav a {
+    white-space: nowrap;
+    /* внутренний отступ, а не отрицательный margin: у навигации
+       overflow-x: auto, и выступающая зона касания обрезалась бы */
+    padding-block: 11px;
+  }
+
+  .header__nav a::after {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .header__logo {
+    font-size: 15px;
+  }
+  .header__cta {
+    padding: 9px 15px;
+    font-size: 13px;
+  }
+
+  .header__nav {
+    gap: 16px;
+  }
+}

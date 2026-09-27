@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Основные начертания: латиница заголовков и текста.
+         -ext подтягивается по мере надобности. -->
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/fonts/onest-latin.woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/fonts/manrope-latin.woff2"
+      crossorigin
+    />
+    <title>Mike Lozovoy · AI-native growth</title>
+    <meta
+      name="description"
+      content="AI-native growth marketer. I own the result."
+    />
+    <meta name="theme-color" content="#f7f7f5" />
+
+    <!-- Карточка при отправке ссылки в мессенджеры.
+         SITE_URL подставляется при сборке: SITE_URL=https://domain npm run build
+         Без домена карточка в Telegram не развернётся: там нужен
+         абсолютный адрес картинки, относительный он не читает. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Mike Lozovoy" />
+    <meta
+      property="og:title"
+      content="Mike Lozovoy · AI-native growth"
+    />
+    <meta
+      property="og:description"
+      content="AI-native growth marketer. I own the result."
+    />
+    <meta property="og:url" content="__SITE_URL__/" />
+    <meta property="og:image" content="__SITE_URL__/og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Growth that doesn’t burn budget" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Mike Lozovoy · AI-native growth"
+    />
+    <meta
+      name="twitter:description"
+      content="AI-native growth marketer. I own the result."
+    />
+    <meta name="twitter:image" content="__SITE_URL__/og.jpg" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

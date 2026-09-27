@@ -1,0 +1,9 @@
+.footer__inner {
+  padding-block: 8px 48px;
+}
+
+.footer__copy {
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--muted);
+}

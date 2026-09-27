@@ -1,0 +1,18 @@
+/* /projects — как /work на Framer: заголовок «All work» и сетка карточек */
+.page-head {
+  padding-top: clamp(56px, 7vw, 108px);
+}
+
+.page-head__title {
+  font-size: clamp(40px, 5vw, 64px);
+  letter-spacing: -0.02em;
+}
+
+.projects {
+  padding-top: clamp(32px, 4vw, 56px);
+}
+
+/* На Framer /work обложки 16:9, на главной — 524:272 */
+.projects .case-card__cover {
+  aspect-ratio: 16 / 9;
+}
