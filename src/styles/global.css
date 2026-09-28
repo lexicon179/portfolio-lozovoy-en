@@ -54,10 +54,10 @@ html {
   scroll-padding-top: 88px;
 }
 
-/* На мобиле и планшете шапка в две строки и выше */
+/* На мобиле и планшете шапка в одну строку высотой 64px */
 @media (max-width: 900px) {
   html {
-    scroll-padding-top: 112px;
+    scroll-padding-top: 80px;
   }
 }
 

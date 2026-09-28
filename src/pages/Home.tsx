@@ -38,7 +38,8 @@ export default function Home() {
             <h1 className="hero__title">Growth that doesn’t burn budget</h1>
 
             <p className="hero__sub">
-              AI-native growth marketer. I own the result.
+              <span>AI-native growth marketer.</span>{' '}
+              <span>I own the result.</span>
             </p>
 
             <div className="hero__actions">

@@ -229,6 +229,11 @@
 
 /* ——— АДАПТИВ ——— */
 @media (max-width: 560px) {
+  /* по предложению на строку, без висящего «I» в конце */
+  .hero__sub span {
+    display: block;
+  }
+
   .hero__stats {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));

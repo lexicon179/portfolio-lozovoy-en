@@ -72,49 +72,102 @@
   font-weight: 500;
 }
 
-/* На мобиле шапка в две строки: логотип + CTA сверху,
-   навигация — прокручиваемой лентой снизу. */
+/* Кнопка меню — только на телефоне и планшете */
+.header__menu {
+  display: none;
+}
+
+/* Телефон и планшет: как на Framer — логотип, «Get in touch» и кнопка
+   меню в одну строку. Пункты меню — панелью под шапкой по нажатию. */
 @media (max-width: 900px) {
-  /* Зоны касания под палец: кнопка и ссылки навигации по 44px.
-     Вертикальные отступы шапки ужаты, чтобы она не выросла заметно. */
   .header__inner {
-    flex-wrap: wrap;
-    row-gap: 0;
-    padding-block: 6px 2px;
-    min-height: 0;
+    gap: 10px;
+    min-height: 64px;
   }
 
   .header__logo {
-    order: 1;
+    margin-right: auto;
     min-height: 44px;
   }
 
   .header__cta {
-    order: 2;
     min-height: 44px;
     padding: 10px 18px;
     font-size: 14px;
   }
 
-  .header__nav {
-    order: 3;
-    width: 100%;
-    gap: 20px;
-    font-size: 14px;
-    overflow-x: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+  .header__menu {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    flex: none;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
   }
 
-  .header__nav::-webkit-scrollbar {
+  /* две полоски; в открытом состоянии складываются в крестик */
+  .header__menu-icon,
+  .header__menu-icon::before {
+    display: block;
+    width: 20px;
+    height: 2px;
+    border-radius: 2px;
+    background: currentColor;
+    transition: transform 0.3s var(--ease);
+  }
+
+  .header__menu-icon {
+    position: relative;
+    transform: translateY(-3.5px);
+  }
+
+  .header__menu-icon::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 7px;
+  }
+
+  .header--open .header__menu-icon {
+    transform: translateY(0) rotate(45deg);
+  }
+
+  .header--open .header__menu-icon::before {
+    transform: translateY(-7px) rotate(-90deg);
+  }
+
+  .header__nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
     display: none;
+    flex-direction: column;
+    gap: 0;
+    padding: 4px var(--gutter) 12px;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 18px 30px -24px rgba(17, 17, 17, 0.35);
+  }
+
+  .header--open .header__nav {
+    display: flex;
   }
 
   .header__nav a {
-    white-space: nowrap;
-    /* внутренний отступ, а не отрицательный margin: у навигации
-       overflow-x: auto, и выступающая зона касания обрезалась бы */
-    padding-block: 11px;
+    padding-block: 14px;
+    font-size: 18px;
+    color: var(--ink);
+    border-top: 1px solid var(--line);
+  }
+
+  .header__nav a:first-child {
+    border-top: 0;
   }
 
   .header__nav a::after {
@@ -122,16 +175,13 @@
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 380px) {
   .header__logo {
     font-size: 15px;
   }
-  .header__cta {
-    padding: 9px 15px;
-    font-size: 13px;
-  }
 
-  .header__nav {
-    gap: 16px;
+  .header__cta {
+    padding: 9px 14px;
+    font-size: 13px;
   }
 }
