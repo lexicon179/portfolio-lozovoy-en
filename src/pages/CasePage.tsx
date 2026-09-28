@@ -89,7 +89,7 @@ export default function CasePage() {
 
           <section className="case__block">
             <Reveal>
-              <h2 className="case__h2 case__h2--caps">Challenge</h2>
+              <h2 className="case__h2">Challenge</h2>
               <p className="case__body">{study.challenge}</p>
             </Reveal>
           </section>

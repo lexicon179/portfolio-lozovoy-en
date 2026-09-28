@@ -13,7 +13,7 @@
   padding: clamp(36px, 4.2vw, 60px) clamp(20px, 2.8vw, 40px)
     clamp(32px, 3.4vw, 48px);
   border-radius: var(--radius);
-  background: #141414;
+  background: var(--surface-dark);
   color: var(--bg);
 }
 
@@ -53,34 +53,6 @@
   flex: none;
   border-radius: 50%;
   background: var(--live);
-}
-
-/* Мягкая пульсация: кольцо расходится от точки и гаснет */
-.status__dot::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background: var(--live);
-  animation: status-pulse 2.4s var(--ease) infinite;
-}
-
-@keyframes status-pulse {
-  0% {
-    transform: scale(1);
-    opacity: 0.55;
-  }
-  80%,
-  100% {
-    transform: scale(2.8);
-    opacity: 0;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .status__dot::after {
-    display: none;
-  }
 }
 
 /* Телефон: плашка и «· AI-native growth» в одну строку,
@@ -205,6 +177,32 @@
 /* На тёмной поверхности обводка фокуса светлая */
 .hero :focus-visible {
   outline-color: var(--bg);
+}
+
+/* ——— WORKED WITH ———
+   Статичная строка названий по центру: без движения и без логотипов */
+.brands {
+  padding-block: clamp(56px, 6vw, 88px) 0;
+  text-align: center;
+}
+
+.brands__label {
+  margin-bottom: 20px;
+}
+
+.brands__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px clamp(24px, 3.4vw, 48px);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(20px, 2.2vw, 30px);
+  letter-spacing: -0.02em;
+  color: var(--ink);
 }
 
 /* ——— БИО ——— */

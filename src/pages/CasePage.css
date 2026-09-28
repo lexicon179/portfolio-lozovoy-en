@@ -100,11 +100,6 @@
   margin-bottom: 14px;
 }
 
-/* На Framer «Challenge» набран капсом, остальные заголовки — нет */
-.case__h2--caps {
-  text-transform: uppercase;
-}
-
 .case__body {
   font-size: 18px;
   line-height: 1.5;

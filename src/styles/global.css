@@ -32,10 +32,15 @@
   --radius: 22px;
   --radius-img: 18px;
 
+  /* Два семейства на весь сайт: Onest — заголовки и цифры,
+     Manrope — текст и подписи */
   --font-display: 'Onest', system-ui, sans-serif;
   --font-body: 'Manrope', system-ui, -apple-system, sans-serif;
-  --font-label: 'Inter', system-ui, sans-serif;
-  --font-num: 'Clash Display', 'Onest', system-ui, sans-serif;
+  --font-label: var(--font-body);
+  --font-num: var(--font-display);
+
+  /* Одна тёмная поверхность: hero и отзывы */
+  --surface-dark: #141414;
 
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -185,12 +190,6 @@ video {
   line-height: 1.55;
 }
 
-.rule {
-  height: 1px;
-  background: var(--ink-12);
-  border: 0;
-  margin: 0;
-}
 
 /* ---------- Кнопки ---------- */
 
@@ -252,14 +251,7 @@ video {
   box-shadow: 0 12px 30px -12px rgba(0, 0, 0, 0.8);
 }
 
-/* Прямоугольная кнопка со скруглением 8px («View all work →») */
-.btn--square {
-  border-radius: 8px;
-  padding: 13px 22px;
-  font-family: var(--font-body);
-  font-size: 14px;
-  font-weight: 500;
-}
+
 
 .btn__arrow {
   transition: transform 0.3s var(--ease);

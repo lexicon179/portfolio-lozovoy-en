@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import Marquee from '../components/Marquee';
 import Reveal from '../components/Reveal';
 import CaseCard from '../components/CaseCard';
 import Services from '../sections/Services';
@@ -69,11 +68,16 @@ export default function Home() {
       </section>
 
       {/* ——— WORKED WITH ——— */}
-      <Marquee label="Worked with" items={brands} />
-
-      <div className="shell">
-        <hr className="rule" />
-      </div>
+      <section className="brands" aria-label="Worked with">
+        <div className="shell">
+          <p className="eyebrow brands__label">Worked with</p>
+          <ul className="brands__list">
+            {brands.map((b) => (
+              <li key={b}>{b}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
       {/* ——— БИО ——— */}
       <section className="about" id="about">
@@ -90,10 +94,6 @@ export default function Home() {
       </section>
 
       <Services />
-
-      <div className="shell">
-        <hr className="rule" />
-      </div>
 
       {/* ——— SELECTED WORK ——— */}
       <section className="section work" id="work">
@@ -114,7 +114,7 @@ export default function Home() {
 
           <Reveal delay={0.1}>
             <div className="work__more">
-              <Link className="btn btn--dark btn--square" to="/projects">
+              <Link className="btn btn--dark" to="/projects">
                 View all work →
               </Link>
             </div>

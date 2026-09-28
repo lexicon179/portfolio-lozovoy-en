@@ -2,7 +2,7 @@
 .testimonials__panel {
   padding: clamp(40px, 6vw, 96px) clamp(20px, 2.8vw, 40px);
   border-radius: var(--radius);
-  background: var(--ink);
+  background: var(--surface-dark);
   color: var(--bg);
 }
 

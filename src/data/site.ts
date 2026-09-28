@@ -33,7 +33,7 @@ export const stats = [
   { value: '$120K', label: 'raised' },
   { value: '1.2M+', label: 'impressions' },
   { value: '15K', label: 'DAU' },
-  { value: '100K', label: 'leads' },
+  { value: '100K', label: 'whitelist' },
   { value: 'tier-1', label: 'brands' },
 ];
 
