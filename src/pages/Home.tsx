@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import Marquee from '../components/Marquee';
 import Reveal from '../components/Reveal';
 import CaseCard from '../components/CaseCard';
 import Services from '../sections/Services';
@@ -68,16 +69,7 @@ export default function Home() {
       </section>
 
       {/* ——— WORKED WITH ——— */}
-      <section className="brands" aria-label="Worked with">
-        <div className="shell">
-          <p className="eyebrow brands__label">Worked with</p>
-          <ul className="brands__list">
-            {brands.map((b) => (
-              <li key={b}>{b}</li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <Marquee label="Worked with" items={brands} />
 
       {/* ——— БИО ——— */}
       <section className="about" id="about">

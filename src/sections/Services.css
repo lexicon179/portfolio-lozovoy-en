@@ -30,6 +30,39 @@
   box-shadow: 0 26px 50px -30px rgba(17, 17, 17, 0.3);
 }
 
+.service__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.service__icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex: none;
+  border: 1px solid var(--ink-12);
+  border-radius: 50%;
+  color: var(--ink);
+  transition:
+    border-color 0.45s var(--ease),
+    background-color 0.45s var(--ease),
+    color 0.45s var(--ease);
+}
+
+.service__icon svg {
+  width: 21px;
+  height: 21px;
+}
+
+.service:hover .service__icon {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--bg);
+}
+
 .service__index {
   font-size: 13px;
   font-weight: 600;
@@ -39,7 +72,7 @@
 }
 
 .service__title {
-  margin-top: 28px;
+  margin-top: 24px;
   font-size: clamp(26px, 2.1vw, 30px);
   line-height: 1;
   letter-spacing: -0.02em;
