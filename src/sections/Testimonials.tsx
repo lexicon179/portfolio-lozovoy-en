@@ -1,4 +1,7 @@
+import { Link } from 'react-router-dom';
 import Reveal from '../components/Reveal';
+import Tiles from '../components/Tiles';
+import { getCaseBySlug } from '../data/cases';
 import { testimonials } from '../data/site';
 import './Testimonials.css';
 
@@ -22,7 +25,9 @@ export default function Testimonials() {
         </div>
 
         <ul className="quotes">
-          {testimonials.map((t, i) => (
+          {testimonials.map((t, i) => {
+            const study = t.caseSlug ? getCaseBySlug(t.caseSlug) : undefined;
+            return (
             <li key={t.name + i}>
               <Reveal delay={i * 0.08} className="quote">
                 <div className="quote__person">
@@ -55,9 +60,20 @@ export default function Testimonials() {
                   )}
                   <span className="quote__role">{t.role}</span>
                 </span>
+
+                {/* Отзыв ведёт в кейс: его цифры и ссылка */}
+                {study && (
+                  <div className="quote__case">
+                    <Tiles items={study.metrics.slice(0, 2)} dark />
+                    <Link className="quote__case-link" to={`/case/${study.slug}`}>
+                      {study.title} case →
+                    </Link>
+                  </div>
+                )}
               </Reveal>
             </li>
-          ))}
+            );
+          })}
         </ul>
         </div>
       </div>

@@ -4,7 +4,7 @@
 }
 
 .page-head__title {
-  font-size: clamp(40px, 5vw, 64px);
+  font-size: var(--fs-h2);
   letter-spacing: -0.02em;
 }
 

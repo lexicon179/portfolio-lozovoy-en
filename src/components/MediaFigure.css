@@ -24,32 +24,44 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 14px;
-  font-size: 16px;
+  font-size: var(--fs-ui);
   line-height: 1.5;
   color: var(--muted-2);
 }
 
-.media__link {
-  display: inline-flex;
-  align-items: center;
-  min-height: 36px;
-  padding: 0 16px;
-  border-radius: 999px;
-  background: #ececea;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--ink);
-  white-space: nowrap;
-  transition: background-color 0.25s var(--ease);
+/* Карточка хайлайта (как шаги у Explee): белая подложка, сверху подпись
+   и кнопка на оригинал, снизу картинка во всю ширину карточки */
+.media--card {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 16px;
+  padding: var(--pad-card);
+  border-radius: var(--radius);
+  background: var(--card);
 }
 
-.media__link:hover {
-  background: #e0e0dd;
+.media--card .media__caption {
+  margin-top: 0;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 20px;
+  flex-wrap: wrap;
+  font-size: var(--fs-body);
+  color: var(--ink);
+}
+
+/* На телефоне кнопка под подписью, а не сбоку */
+@media (max-width: 620px) {
+  .media--card .media__caption {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 /* Хайлайты — вертикальная лента, одна работа на строку */
 .gallery-ribbon {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 16px;
 }

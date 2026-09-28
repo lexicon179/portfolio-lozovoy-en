@@ -14,7 +14,7 @@ export default function NotFound() {
         >
           Page not found
         </h1>
-        <p className="lead" style={{ marginTop: 20, maxWidth: '40ch' }}>
+        <p style={{ marginTop: 20, maxWidth: '40ch', color: 'var(--muted)' }}>
           This page doesn’t exist. The link may be outdated.
         </p>
         <div style={{ marginTop: 36, display: 'flex', gap: 12, flexWrap: 'wrap' }}>

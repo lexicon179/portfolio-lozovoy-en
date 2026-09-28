@@ -1,5 +1,5 @@
 .contact__title {
-  font-size: clamp(44px, 7.8vw, 112px);
+  font-size: var(--fs-display);
   line-height: 0.98;
   letter-spacing: -0.03em;
 }
@@ -13,9 +13,7 @@
 }
 
 .contact__primary {
-  padding: 12px 20px;
   gap: 8px;
-  font-size: 16px;
 }
 
 /* Email · X · Download CV — одна группа, переносится целиком */
@@ -34,13 +32,13 @@
 }
 
 .contact__link {
-  font-size: 19px;
+  font-size: var(--fs-body);
   font-weight: 500;
   line-height: 1;
   color: var(--ink);
   border-bottom: 1px solid transparent;
-  padding: 12px 6px;
-  margin-inline: -6px;
+  padding: 12px 8px;
+  margin-inline: -8px;
   transition: border-color 0.25s var(--ease);
 }
 
@@ -50,5 +48,10 @@
 
 .contact__sep {
   color: var(--muted);
-  font-size: 19px;
+  font-size: var(--fs-body);
+}
+
+/* В колонке кейса заголовок размером с заголовок секции */
+.contact--narrow .contact__title {
+  font-size: var(--fs-h2);
 }

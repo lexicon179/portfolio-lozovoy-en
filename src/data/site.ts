@@ -83,6 +83,8 @@ export type Testimonial = {
   avatar?: string;
   /** Профиль автора. Есть — имя становится ссылкой (как на Framer). */
   href?: string;
+  /** Кейс, о котором отзыв: в карточке его цифры и ссылка на него */
+  caseSlug?: string;
 };
 
 export const testimonials: Testimonial[] = [
@@ -92,6 +94,7 @@ export const testimonials: Testimonial[] = [
     name: 'Roo Gainulla',
     role: 'CMO, Algebra Finance',
     avatar: '/avatars/roo.jpg',
+    caseSlug: 'algebra-finance',
   },
   {
     quote:
@@ -99,6 +102,7 @@ export const testimonials: Testimonial[] = [
     name: 'Max',
     role: 'CPO at MAIN',
     avatar: '/avatars/max.jpg',
+    caseSlug: 'main',
   },
   {
     quote:

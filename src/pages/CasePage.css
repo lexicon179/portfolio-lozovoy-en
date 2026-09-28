@@ -11,7 +11,7 @@
   align-items: center;
   gap: 8px;
   padding-block: 10px;
-  font-size: 14px;
+  font-size: var(--fs-ui);
   font-weight: 500;
   color: var(--muted);
   transition: color 0.25s var(--ease);
@@ -26,7 +26,7 @@
 }
 
 .case__title {
-  font-size: clamp(44px, 5vw, 64px);
+  font-size: var(--fs-h2);
   line-height: 1.02;
   letter-spacing: -0.02em;
 }
@@ -38,13 +38,13 @@
 
 .case__period {
   margin-top: 6px;
-  font-size: 14px;
+  font-size: var(--fs-xs);
   color: var(--muted-2);
 }
 
 .case__summary {
   margin-top: 36px;
-  font-size: 18px;
+  font-size: var(--fs-body);
   line-height: 1.5;
   color: var(--ink);
 }
@@ -77,7 +77,7 @@
 .case-metrics__value {
   font-family: var(--font-num);
   font-weight: 600;
-  font-size: 36px;
+  font-size: var(--fs-stat);
   line-height: 1;
   letter-spacing: -0.02em;
   white-space: nowrap;
@@ -85,23 +85,23 @@
 
 .case-metrics__label {
   font-family: var(--font-label);
-  font-size: 13px;
+  font-size: var(--fs-xs);
   font-weight: 500;
   line-height: 1.15;
-  letter-spacing: 0.12em;
+  letter-spacing: var(--caps-ls);
   text-transform: uppercase;
   color: var(--muted);
 }
 
 .case__h2 {
-  font-size: clamp(28px, 3vw, 34px);
+  font-size: var(--fs-card);
   line-height: 1.1;
   letter-spacing: 0;
   margin-bottom: 14px;
 }
 
 .case__body {
-  font-size: 18px;
+  font-size: var(--fs-body);
   line-height: 1.5;
 }
 
@@ -111,7 +111,7 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
-  font-size: 18px;
+  font-size: var(--fs-body);
   line-height: 1.5;
   color: var(--muted);
 }
@@ -123,13 +123,10 @@
 
 .case__hint {
   margin-bottom: 28px;
-  font-size: 14px;
+  font-size: var(--fs-xs);
   color: var(--muted-3);
 }
 
-.case__project {
-  padding: 17px 28px;
-}
 
 @media (max-width: 620px) {
   .case-metrics {
@@ -142,43 +139,35 @@
   }
 }
 
-/* Следующий кейс — перенесено из русской версии */
+/* Следующий кейс — в колонке кейса, в общем стиле заголовков */
 .case__next {
-  border-top: 1px solid var(--ink-12);
+  margin-top: clamp(48px, 6vw, 80px);
+  border-top: 1px solid var(--line);
 }
 
 .case__next-link {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding-block: clamp(36px, 5vw, 64px);
-}
-
-.case__next-label {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ink-45);
+  gap: 12px;
+  padding-top: clamp(28px, 3vw, 40px);
 }
 
 .case__next-title {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: clamp(36px, 6vw, 68px);
-  letter-spacing: -0.04em;
-  line-height: 1;
   display: inline-flex;
   align-items: center;
   gap: 14px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-h2);
+  letter-spacing: -0.02em;
+  line-height: 1;
   transition: color 0.3s var(--ease);
 }
 
 .case__next-link:hover .case__next-title {
-  color: var(--ink-60);
+  color: var(--muted);
 }
 
 .case__next-link:hover .btn__arrow {
   transform: translate(4px, -4px);
 }
-

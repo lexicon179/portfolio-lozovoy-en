@@ -17,7 +17,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 32px;
+  padding: var(--pad-card);
   border-radius: var(--radius);
   background: var(--card);
   transition:
@@ -64,23 +64,23 @@
 }
 
 .service__index {
-  font-size: 13px;
+  font-size: var(--fs-xs);
   font-weight: 600;
   line-height: 1;
-  letter-spacing: 0.12em;
+  letter-spacing: var(--caps-ls);
   color: var(--muted);
 }
 
 .service__title {
   margin-top: 24px;
-  font-size: clamp(26px, 2.1vw, 30px);
+  font-size: var(--fs-card);
   line-height: 1;
   letter-spacing: -0.02em;
 }
 
 .service__text {
   margin-top: 14px;
-  font-size: 17px;
+  font-size: var(--fs-body);
   line-height: 1.5;
   color: var(--muted);
   max-width: 32ch;
@@ -98,7 +98,4 @@
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .service {
-    padding: 20px;
-  }
 }

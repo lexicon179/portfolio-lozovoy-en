@@ -54,7 +54,7 @@ export default function Header() {
         </nav>
 
         <a
-          className="btn btn--dark header__cta"
+          className="btn btn--dark btn--sm header__cta"
           href={links.telegram}
           target="_blank"
           rel="noopener noreferrer"

@@ -1,6 +1,6 @@
 /* Отзывы на тёмной скруглённой плашке шириной в контейнер — как на Framer */
 .testimonials__panel {
-  padding: clamp(40px, 6vw, 96px) clamp(20px, 2.8vw, 40px);
+  padding: clamp(40px, 6vw, 96px) var(--pad-panel);
   border-radius: var(--radius);
   background: var(--surface-dark);
   color: var(--bg);
@@ -33,7 +33,7 @@
   align-items: center;
   gap: 22px;
   width: 100%;
-  padding: 36px 28px 40px;
+  padding: var(--pad-card);
   border: 1px solid var(--line-dark);
   border-radius: var(--radius);
   text-align: center;
@@ -64,7 +64,7 @@
 }
 
 .quote__text {
-  font-size: 18px;
+  font-size: var(--fs-body);
   line-height: 1.5;
   color: var(--bg);
   text-wrap: balance;
@@ -80,7 +80,7 @@
 .quote__name {
   font-family: var(--font-label);
   font-weight: 600;
-  font-size: 15px;
+  font-size: var(--fs-ui);
   line-height: 1.2;
 }
 
@@ -99,8 +99,33 @@
   text-decoration-color: var(--bg);
 }
 
+.quote__case {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+
+.quote__case-link {
+  align-self: center;
+  padding-block: 12px;
+  margin-block: -12px -4px;
+  font-size: var(--fs-ui);
+  font-weight: 600;
+  color: var(--bg);
+  text-decoration: underline;
+  text-decoration-color: rgba(247, 247, 245, 0.35);
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.25s var(--ease);
+}
+
+.quote__case-link:hover {
+  text-decoration-color: var(--bg);
+}
+
 .quote__role {
-  font-size: 13px;
+  font-size: var(--fs-xs);
   line-height: 1.2;
   color: var(--muted-on-dark);
 }

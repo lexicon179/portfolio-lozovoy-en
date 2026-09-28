@@ -11,6 +11,8 @@ type Props = {
    * иначе браузер возьмёт файл поменьше и картинка будет мылить.
    */
   sizes?: string;
+  /** Карточка хайлайта: белая подложка, подпись и «View post» над картинкой */
+  card?: boolean;
 };
 
 /**
@@ -23,10 +25,11 @@ type Props = {
 export default function MediaFigure({
   item,
   eager = false,
+  card = false,
   sizes = '(max-width: 760px) 100vw, 720px',
 }: Props) {
   return (
-    <figure className="media">
+    <figure className={card ? 'media media--card' : 'media'}>
       <div
         className="media__frame"
       >
@@ -49,7 +52,7 @@ export default function MediaFigure({
           {item.caption && <span>{item.caption}</span>}
           {item.href && (
             <a
-              className="media__link"
+              className="btn btn--soft btn--sm media__link"
               href={item.href}
               target="_blank"
               rel="noopener noreferrer"

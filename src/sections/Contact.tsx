@@ -20,11 +20,19 @@ const PlaneIcon = () => (
   </svg>
 );
 
+type Props = {
+  /** На странице кейса блок стоит в колонке текста (720px) */
+  narrow?: boolean;
+};
+
 /** «Let’s talk numbers!» — как на Framer: Telegram кнопкой, остальное ссылками */
-export default function Contact() {
+export default function Contact({ narrow = false }: Props) {
   return (
-    <section className="section contact" id="contact">
-      <div className="shell">
+    <section
+      className={`section contact${narrow ? ' contact--narrow' : ''}`}
+      id="contact"
+    >
+      <div className={narrow ? 'shell shell--narrow' : 'shell'}>
         <Reveal>
           <h2 className="contact__title">Let’s talk numbers!</h2>
         </Reveal>

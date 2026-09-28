@@ -120,7 +120,7 @@ export default function CasePage() {
               <div className="gallery-ribbon">
                 {study.gallery.map((item) => (
                   <Reveal key={item.src}>
-                    <MediaFigure item={item} />
+                    <MediaFigure item={item} card />
                   </Reveal>
                 ))}
               </div>
@@ -144,27 +144,24 @@ export default function CasePage() {
               </Reveal>
             </section>
           )}
+          {/* Следующий кейс — по кругу; в той же колонке, что и кейс */}
+          {next && next.slug !== study.slug && (
+            <section className="case__next">
+              <Link to={`/case/${next.slug}`} className="case__next-link">
+                <span className="eyebrow">Next case</span>
+                <span className="case__next-title">
+                  {next.title}
+                  <span className="btn__arrow" aria-hidden="true">
+                    ↗
+                  </span>
+                </span>
+              </Link>
+            </section>
+          )}
         </div>
       </article>
 
-      {/* Следующий кейс — как в русской версии; последний ведёт на первый */}
-      {next && next.slug !== study.slug && (
-        <section className="case__next">
-          <div className="shell">
-            <Link to={`/case/${next.slug}`} className="case__next-link">
-              <span className="case__next-label">Next case</span>
-              <span className="case__next-title">
-                {next.title}
-                <span className="btn__arrow" aria-hidden="true">
-                  ↗
-                </span>
-              </span>
-            </Link>
-          </div>
-        </section>
-      )}
-
-      <Contact />
+      <Contact narrow />
     </>
   );
 }

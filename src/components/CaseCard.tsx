@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import type { CaseStudy } from '../data/cases';
+import Tiles from './Tiles';
 import './CaseCard.css';
 
 type Props = {
@@ -8,7 +9,7 @@ type Props = {
   headingLevel?: 2 | 3;
 };
 
-/** Карточка кейса как на Framer: ч/б обложка, название, описание, результат. */
+/** Карточка кейса: обложка, название, описание и две цифры плитками. */
 export default function CaseCard({ study, headingLevel = 3 }: Props) {
   const Heading = headingLevel === 2 ? 'h2' : 'h3';
   return (
@@ -33,7 +34,9 @@ export default function CaseCard({ study, headingLevel = 3 }: Props) {
 
       <Heading className="case-card__title">{study.title}</Heading>
       <p className="case-card__summary">{study.summary}</p>
-      <p className="proof case-card__headline">{study.headline}</p>
+      <div className="case-card__tiles">
+        <Tiles items={study.metrics.slice(0, 2)} />
+      </div>
     </Link>
   );
 }

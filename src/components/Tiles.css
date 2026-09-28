@@ -1,0 +1,64 @@
+.tiles {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: var(--bg);
+}
+
+.tile__value {
+  font-family: var(--font-num);
+  font-weight: 700;
+  font-size: var(--fs-tile);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.tile__label {
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: var(--caps-ls);
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.tiles--dark .tile {
+  background: rgba(247, 247, 245, 0.07);
+}
+
+.tiles--dark .tile__label {
+  color: var(--muted-on-dark);
+}
+
+/* Телефон: плитки столбиком, число и подпись в строку —
+   длинные подписи («IMPRESSIONS», «FARCASTER FOLLOWERS») не упираются в край */
+@media (max-width: 620px) {
+  .tiles {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 6px;
+  }
+
+  .tile {
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 14px;
+  }
+
+  .tile__value {
+    min-width: 3.4em;
+  }
+}
+

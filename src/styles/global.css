@@ -42,6 +42,25 @@
   /* Одна тёмная поверхность: hero и отзывы */
   --surface-dark: #141414;
 
+  /* Шкала текста. Других размеров на сайте нет. */
+  --fs-xs: 13px; /* подписи капсом, мета, даты */
+  --fs-ui: 15px; /* меню, маленькие кнопки, подписи к картинкам */
+  --fs-body: 17px; /* весь основной текст и основные кнопки */
+  --fs-tile: 24px; /* цифры в плитках карточек */
+  --fs-card: clamp(26px, 2.1vw, 30px); /* заголовки карточек и блоков кейса */
+  --fs-stat: clamp(30px, 2.5vw, 36px); /* цифры hero и Key outcome */
+  --fs-lead: clamp(26px, 3.1vw, 44px); /* био */
+  --fs-h2: clamp(34px, 5vw, 64px); /* заголовки секций */
+  --fs-h1: clamp(48px, 6.7vw, 96px); /* заголовок hero */
+  --fs-display: clamp(44px, 7.8vw, 112px); /* «Let’s talk numbers!» */
+
+  /* Одна разрядка для всех подписей капсом */
+  --caps-ls: 0.12em;
+
+  /* Внутреннее поле карточек и тёмных плашек */
+  --pad-card: 32px;
+  --pad-panel: 40px;
+
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -59,6 +78,14 @@ html {
   scroll-padding-top: 88px;
 }
 
+/* Телефон: одно поле у всех карточек и тёмных плашек */
+@media (max-width: 620px) {
+  :root {
+    --pad-card: 20px;
+    --pad-panel: 20px;
+  }
+}
+
 /* На мобиле и планшете шапка в одну строку высотой 64px */
 @media (max-width: 900px) {
   html {
@@ -71,7 +98,7 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font-body);
-  font-size: 17px;
+  font-size: var(--fs-body);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -130,6 +157,11 @@ video {
   padding-block: var(--section-y);
 }
 
+/* Узкий контейнер — колонка текста на странице кейса */
+.shell--narrow {
+  max-width: calc(720px + var(--gutter) * 2);
+}
+
 .section-head {
   display: flex;
   align-items: baseline;
@@ -139,13 +171,13 @@ video {
   margin-bottom: clamp(32px, 4vw, 56px);
 }
 
-/* Мелкая подпись капсом: Inter 13/500, разрядка 0.14em — как на Framer */
+/* Мелкая подпись капсом */
 .eyebrow {
   font-family: var(--font-label);
-  font-size: 13px;
+  font-size: var(--fs-xs);
   font-weight: 500;
   line-height: 1.2;
-  letter-spacing: 0.14em;
+  letter-spacing: var(--caps-ls);
   text-transform: uppercase;
   color: var(--muted);
   margin: 0;
@@ -157,7 +189,7 @@ video {
 }
 
 .h2 {
-  font-size: clamp(34px, 5vw, 64px);
+  font-size: var(--fs-h2);
 }
 
 /* Квадратный маркер перед строкой результата */
@@ -166,7 +198,7 @@ video {
   align-items: flex-start;
   gap: 10px;
   font-family: var(--font-num);
-  font-size: 19px;
+  font-size: var(--fs-body);
   font-weight: 600;
   line-height: 1.1;
   letter-spacing: -0.01em;
@@ -184,24 +216,23 @@ video {
   flex: none;
 }
 
-.lead {
-  font-size: clamp(18px, 1.6vw, 21px);
-  color: var(--ink-60);
-  line-height: 1.55;
-}
 
 
-/* ---------- Кнопки ---------- */
+/* ---------- Кнопки ----------
+   Два размера на весь сайт: основная (.btn, 48px) и маленькая
+   (.btn--sm, 40px: шапка и «View post»). */
 
 .btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
-  padding: 15px 26px;
+  min-height: 48px;
+  padding: 0 26px;
   border-radius: 999px;
   border: 1px solid transparent;
   font-family: var(--font-label);
-  font-size: 16px;
+  font-size: var(--fs-body);
   font-weight: 600;
   line-height: 1;
   cursor: pointer;
@@ -239,6 +270,23 @@ video {
 
 .btn--ghost:hover {
   border-color: var(--ink);
+}
+
+.btn--sm {
+  min-height: 40px;
+  padding: 0 18px;
+  gap: 8px;
+  font-size: var(--fs-ui);
+}
+
+/* Светлая кнопка на светлой карточке («View post») */
+.btn--soft {
+  background: #ececea;
+  color: var(--ink);
+}
+
+.btn--soft:hover {
+  background: #e2e2df;
 }
 
 /* Светлая кнопка на тёмной поверхности (hero) */
